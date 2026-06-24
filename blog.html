@@ -123,6 +123,48 @@ body:not(.page-is-fullscreen) iframe {
 	max-width: 100%;
 }
 
+.ivan-blog-search {
+	width: min(680px, calc(100% - 36px));
+	margin: 0 auto 38px;
+}
+
+.ivan-blog-search form {
+	position: relative;
+}
+
+.ivan-blog-search i {
+	position: absolute;
+	top: 50%;
+	left: 18px;
+	transform: translateY(-50%);
+	color: #9a9a9a;
+	font-size: 15px;
+	pointer-events: none;
+}
+
+.ivan-blog-search input {
+	box-sizing: border-box;
+	width: 100%;
+	height: 48px;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 0;
+	background: rgba(255, 255, 255, 0.78);
+	padding: 0 18px 0 48px;
+	font-family: Lato, sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #333;
+	outline: none;
+	transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.ivan-blog-search input:focus {
+	border-color: rgba(194, 54, 47, 0.46);
+	background: #fff;
+	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
 @media only screen and (max-width: 767px) {
 	html,
 	body {
@@ -237,6 +279,17 @@ body:not(.page-is-fullscreen) iframe {
 		font-size: 14px !important;
 		line-height: 1.65 !important;
 	}
+
+	.ivan-blog-search {
+		width: 100%;
+		margin-bottom: 26px;
+	}
+
+	.ivan-blog-search input {
+		height: 46px;
+		font-size: 11px;
+	}
+
 }
 </style>
 <script type="text/javascript" src="https://imaginem.site/kinetika/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
@@ -445,7 +498,14 @@ var mtheme_uri="https://imaginem.site/kinetika/wp-content/themes/kinetika";
 		</div>
 			</div>
 	</div>
-</div><div class="container clearfix">	<div class="contents-wrap float-left two-column">
+</div><div class="container clearfix">
+	<div class="ivan-blog-search" role="search">
+		<form action="blog.html" method="get" id="ivan-blog-search-form">
+			<i class="feather-icon-search"></i>
+			<input type="search" name="s" id="ivan-blog-search-input" placeholder="Buscar en el blog" aria-label="Buscar en el blog" />
+		</form>
+	</div>
+	<div class="contents-wrap float-left two-column">
 			<div class="entry-content-wrapper">
 		<div class="topseperator entry-wrapper post-standard-wrapper clearfix">
 <div class="blog-details-section">
@@ -479,27 +539,34 @@ var mtheme_uri="https://imaginem.site/kinetika/wp-content/themes/kinetika";
 </div></div></div>
 </div>		</div>
 			<div class="entry-content-wrapper">
-		<div class="topseperator entry-wrapper post-quote-wrapper clearfix">
+		<div class="topseperator entry-wrapper post-standard-wrapper clearfix">
 <div class="blog-details-section">
 	<div class="blog-details-section-inner">
-		<span class="the-day">22</span>
-		<span class="the-month">Nov</span>
-		<span class="the-year">2025</span>
+		<span class="the-day">24</span>
+		<span class="the-month">Jun</span>
+		<span class="the-year">2026</span>
 	</div>
 </div>
 <div class="blog-content-section">
-<div id="post-6016" class="post-6016 post type-post status-publish format-quote hentry category-post-format-quote post_format-post-format-quote">
+<div id="post-6016" class="post-6016 post type-post status-publish format-standard hentry category-reflexiones">
 <div class="entry-content postformat_contents clearfix">
-			<span class="quote_say"><i class="fa fa-quote-left"></i> Imagination will often carry us to worlds that never were. But without it we go nowhere.<i class="fa fa-quote-right"></i></span>
-						<span class="quote_author">&#8212;&nbsp;Carl Sagan</span>
-						<div>La innovación nace de lo que aún no existe, y sin visión, no hay futuro.</div>
-		<div class="postsummary-spacing"></div></div>
+		<div class="entry-post-title">
+		<h2>
+		<a class="postformat_standard" href="reflexiones/heidegger-levinas.html" title="Del Olvido del Ser a la Etica del Otro" rel="bookmark">Del Olvido del Ser a la &Eacute;tica del Otro</a>
+		</h2>
+		</div>
+		<p>&iquest;Qu&eacute; significa realmente "existir"? Aunque parece una pregunta obvia, la filosof&iacute;a occidental pas&oacute; siglos d&aacute;ndola por sentada. En <em>Ser y tiempo</em>, Martin Heidegger sacudi&oacute; al mundo al afirmar que hab&iacute;amos olvidado la pregunta m&aacute;s importante: &iquest;qu&eacute; es el ser? [&hellip;]</p>
+<div class="button-blog-continue">
+	<a href="reflexiones/heidegger-levinas.html">
+		<div class="mtheme-button animated pulse animation-action">Seguir leyendo</div>
+	</a>
+</div></div>
 <div class="postsummarywrap">
 
 	<div class="datecomment clearfix">
-					<i class="feather-icon-speech-bubble"></i>
+					<i class="feather-icon-paper"></i>
 		<span class="post-meta-category">
-			<a  rel="category tag">Quote</a>		</span>
+			<a  rel="category tag">Reflexiones</a>		</span>
 				<span class="post-single-meta">
 						<span class="post-meta-comment">
 			<i class="feather-icon-speech-bubble"></i>
@@ -621,13 +688,14 @@ var mtheme_uri="https://imaginem.site/kinetika/wp-content/themes/kinetika";
 <div id="post-5642" class="post-5642 post type-post status-publish format-audio has-post-thumbnail hentry category-post-format-audio tag-embed tag-soundcloud post_format-post-format-audio">
 <div class="post-format-media">
 
-<iframe style="border-radius:12px" 
-        src="https://open.spotify.com/embed/track/7qiZfU4dY1lWllzX7mPBI3?si=ba78f157046b4fd7?utm_source=generator" 
-        width="100%" 
-        height="352" 
-        frameborder="0" 
-        allowfullscreen 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+<iframe title="Spotify Embed: Recommendation Playlist"
+        style="border-radius:12px; min-height:360px"
+        src="https://open.spotify.com/embed/playlist/73j5GQJensynFxyf8TcixJ?utm_source=generator&theme=0"
+        width="100%"
+        height="360"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
 </iframe>
 
@@ -894,5 +962,29 @@ var wc_order_attribution = {"params":{"lifetime":1.00000000000000008180305391403
 /* ]]> */
 </script>
 <script type="text/javascript" src="https://imaginem.site/kinetika/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.3.3" id="wc-order-attribution-js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	var form = document.getElementById("ivan-blog-search-form");
+	var input = document.getElementById("ivan-blog-search-input");
+	var posts = Array.prototype.slice.call(document.querySelectorAll(".entry-content-wrapper"));
+
+	if (!form || !input || !posts.length) {
+		return;
+	}
+
+	form.addEventListener("submit", function (event) {
+		event.preventDefault();
+	});
+
+	input.addEventListener("input", function () {
+		var query = input.value.trim().toLowerCase();
+
+		posts.forEach(function (post) {
+			var text = post.textContent.toLowerCase();
+			post.style.display = !query || text.indexOf(query) !== -1 ? "" : "none";
+		});
+	});
+});
+</script>
 </body>
 </html>
