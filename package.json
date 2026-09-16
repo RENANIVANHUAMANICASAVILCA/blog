@@ -1,0 +1,8 @@
+{
+  "name": "ivan-blog",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "import-content": "node scripts/import-content.js"
+  }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Administración · Ivan's Blog</title>
+  <link rel="stylesheet" href="estilos1.css">
+  <link rel="stylesheet" href="admin.css?v=3">
+</head>
+<body class="ivan-admin theme-is-dark">
+  <header class="admin-header"><a href="index.html"><img src="img/logo_dark.png" alt="Ivan's Blog"></a><span>Administración</span><div><button id="theme-toggle" class="mtheme-button" type="button">Claro</button><a class="mtheme-button" href="index.html">Ver sitio</a><button id="logout" class="mtheme-button" type="button" hidden>Salir</button></div></header>
+  <main class="admin-main">
+    <section id="login-screen" class="admin-login">
+      <form id="login-form" class="admin-card"><p class="admin-kicker">Acceso restringido</p><h1>Panel administrativo</h1><label>Usuario<input id="login-email" type="email" autocomplete="username" required></label><label>Contraseña<input id="login-password" type="password" autocomplete="current-password" required></label><button class="mtheme-button" type="submit">Entrar</button><p id="login-message" role="status"></p></form>
+    </section>
+    <section id="admin-screen" hidden>
+      <div class="admin-title"><div><p class="admin-kicker">Contenido</p><h1>Blog y portada</h1><p>Edita publicaciones e imágenes enlazadas. Los cambios publicados aparecen en el sitio.</p></div><button id="save-all" class="mtheme-button" type="button">Guardar cambios</button></div>
+      <nav class="admin-tabs" aria-label="Secciones"><button data-tab="posts" class="active">Blog</button><button data-tab="homeSlides">Portada</button><button data-tab="homeCards">Destacados</button><button data-tab="gallery">Imágenes</button></nav>
+      <p id="admin-message" role="status"></p>
+      <section class="admin-card"><div class="admin-list-head"><div><h2 id="section-title">Publicaciones del blog</h2><p id="item-count"></p></div><button id="add-item" class="mtheme-button" type="button">Añadir</button></div><div id="item-list"></div></section>
+      <section id="editor" class="admin-card" hidden><div class="admin-list-head"><h2 id="editor-title">Editar contenido</h2><button id="close-editor" type="button">×</button></div><form id="content-form"><input id="field-id" type="hidden"><div class="admin-fields"><label>Título<input id="field-title" maxlength="160" required></label><label>Tipo<select id="field-type"><option value="standard">Texto</option><option value="image">Imagen</option><option value="gallery">Galería</option></select></label><label>Fecha<input id="field-date" type="date"></label><label>Categoría<input id="field-category" maxlength="80"></label><label class="wide">Descripción<textarea id="field-description" rows="5"></textarea></label><label class="wide">URL de imagen<input id="field-image" type="url" placeholder="https://..."></label><label class="wide" id="images-wrap">Imágenes de galería <small>Una URL por línea</small><textarea id="field-images" rows="5"></textarea></label><label class="wide">Enlace<input id="field-link" placeholder="blog.html o https://..."></label></div><div class="admin-actions"><label><input id="field-published" type="checkbox" checked> Publicado</label><div><button id="delete-item" class="mtheme-button danger" type="button">Eliminar</button><button class="mtheme-button" type="submit">Aplicar</button></div></div></form></section>
+    </section>
+  </main>
+  <script src="supabase/config.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
