@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Administración · Ivan's Blog</title>
+  <title>Auth · Ivan's Blog</title>
   <link rel="stylesheet" href="estilos1.css">
   <link rel="stylesheet" href="admin.css?v=3">
 </head>
 <body class="ivan-admin theme-is-dark">
-  <header class="admin-header"><a href="index.html"><img src="img/logo_dark.png" alt="Ivan's Blog"></a><span>Administración</span><div><button id="theme-toggle" class="mtheme-button" type="button">Claro</button><a class="mtheme-button" href="index.html">Ver sitio</a><button id="logout" class="mtheme-button" type="button" hidden>Salir</button></div></header>
+  <header class="admin-header"><a href="index.html"><img src="img/logo_dark.png" alt="Ivan's Blog"></a><span>Auth</span><div><button id="theme-toggle" class="mtheme-button" type="button">Claro</button><a class="mtheme-button" href="index.html">Ver sitio</a><button id="logout" class="mtheme-button" type="button" hidden>Salir</button></div></header>
   <main class="admin-main">
     <section id="login-screen" class="admin-login">
-      <form id="login-form" class="admin-card"><p class="admin-kicker">Acceso restringido</p><h1>Panel administrativo</h1><label>Usuario<input id="login-email" type="email" autocomplete="username" required></label><label>Contraseña<input id="login-password" type="password" autocomplete="current-password" required></label><button class="mtheme-button" type="submit">Entrar</button><p id="login-message" role="status"></p></form>
+      <form id="login-form" class="admin-card"><p class="admin-kicker">Acceso restringido</p><h1>Auth</h1><label>Usuario<input id="login-email" type="email" required></label><label>Contraseña<input id="login-password" type="password" required></label><button class="mtheme-button" type="submit">Entrar</button><p id="login-message" role="status"></p></form>
     </section>
     <section id="admin-screen" hidden>
       <div class="admin-title"><div><p class="admin-kicker">Contenido</p><h1>Blog y portada</h1><p>Edita publicaciones e imágenes enlazadas. Los cambios publicados aparecen en el sitio.</p></div><button id="save-all" class="mtheme-button" type="button">Guardar cambios</button></div>
