@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
-        (function () {var query = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");function applySystemTheme() {var isDark = !query || query.matches;document.documentElement.classList.toggle("ivan-system-dark", isDark);document.documentElement.classList.toggle("ivan-system-light", !isDark);document.documentElement.style.colorScheme = isDark ? "dark" : "light";if (document.body) {document.body.classList.toggle("theme-is-dark", isDark);document.body.classList.toggle("theme-is-light", !isDark);}}applySystemTheme();if (document.readyState === "loading") {document.addEventListener("DOMContentLoaded", applySystemTheme, { once: true });}if (query) {if (query.addEventListener) query.addEventListener("change", applySystemTheme);else query.addListener(applySystemTheme);}})();
     </script>
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="https://imaginem.site/kinetika/xmlrpc.php" />
@@ -122,15 +121,6 @@
     <style type="text/css" id="wp-custom-css">
         .demo-page-overview-text {margin:0 auto;text-align:center;font-size: 31px;font-weight: 300;line-height: 46px;text-align: center;width: 71%;}.demo-page-overview-box {background: #f9f9f9;font-size: 22px;font-weight: 300;line-height: 37px;padding: 50px;}@media only screen and (min-width: 768px) and (max-width: 959px) {.demo-page-overview-text {font-size: 21px;line-height: 36px;width: 90%;}.demo-page-overview-box {font-size: 16px;line-height: 27px;padding: 50px;}}@media only screen and (max-width: 767px) {.demo-page-overview-text {font-size: 21px;line-height: 36px;width: 90%;}.demo-page-overview-box {font-size: 16px;line-height: 27px;padding: 50px;}}@media only screen and (min-width: 480px) and (max-width: 767px) {.demo-page-overview-text {font-size: 21px;line-height: 36px;width: 90%;}.demo-page-overview-box {font-size: 16px;line-height: 27px;padding: 50px;}}
     </style>
-    <style id="ivan-laptop-final-fix">
-        @media only screen and (min-width:768px){body .mainmenu-navigation{width:100%!important;min-width:100%!important;position:relative!important}body .ivan-laptop-nav{position:absolute!important;top:0!important;height:78px!important;display:flex!important;align-items:center!important;gap:28px!important}body .ivan-nav-left{left:7%!important}body .ivan-nav-right{right:7%!important}body .mainmenu-navigation .header-logo-section{position:absolute!important;left:50%!important;top:0!important;transform:translateX(-50%)!important;z-index:100!important}body .mainmenu-navigation .logo img{display:block!important;width:146px!important;height:auto!important}}
-    </style>
-    <style id="ivan-laptop-position-fix">
-        @media only screen and (min-width:768px){.ivan-laptop-nav{position:fixed!important;top:0!important;height:78px!important;display:flex!important;align-items:center!important;gap:28px!important;z-index:10000!important}.ivan-nav-left{left:7vw!important}.ivan-nav-right{right:7vw!important}.mainmenu-navigation .header-logo-section{position:fixed!important;top:0!important;left:50%!important;width:146px!important;height:78px!important;transform:translateX(-50%)!important;z-index:10001!important}.mainmenu-navigation .logo{width:146px!important;height:78px!important}.mainmenu-navigation .logo img{width:146px!important;height:auto!important;display:block!important}}
-    </style>
-    <style id="ivan-laptop-specificity">
-        @media only screen and (min-width:768px){body .ivan-laptop-nav{position:fixed!important;top:0!important;height:78px!important;z-index:10000!important;display:flex!important;align-items:center!important;gap:28px!important}body .ivan-nav-left{left:7vw!important;right:auto!important}body .ivan-nav-right{right:7vw!important;left:auto!important}body .mainmenu-navigation .header-logo-section{position:fixed!important;left:50%!important;top:0!important;width:146px!important;height:78px!important;transform:translateX(-50%)!important;z-index:10001!important}}
-    </style>
 </head>
 
 <body class="home blog wp-theme-kinetika theme-kinetika woocommerce-no-js single-author theme-is-dark demo middle-logo page-is-fullscreen fullscreen-slideshow has-fullscreen-eventbox theme-fullwidth body-dashboard-push footer-is-on">
@@ -187,8 +177,6 @@
                             <a href="index.html"><img class="logo-theme-main" src="img/logo_dark.png" alt="logo" /></a>
                         </div>
                     </div>
-                    <div class="ivan-laptop-nav ivan-nav-left"><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="images/images.html">Images</a></div>
-                    <div class="ivan-laptop-nav ivan-nav-right"><a href="about.html">About me</a><a href="https://www.instagram.com/huamanicasavilcaivan/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
                     <div class="homemenu"><span class="header-cart header-cart-toggle"><i class="feather-icon-bag"></i></span>
                         <div class="mtheme-header-cart cart"><span class="header-cart header-cart-toggle"><i class="feather-icon-cross"></i></span>
                             <div class="cart-contents">
@@ -304,24 +292,7 @@
             </div>
         </div>
         <script>
-            (function($){
-                function initHomeCards(){
-                    var sync1 = $("#owl-6033-691b40131541b");
-                    if (!sync1.length || !$.fn.owlCarousel || sync1.hasClass("owl-loaded")) return;
-                    sync1.owlCarousel({
-                        singleItem: true,
-                        autoPlay: true,
-                        slideSpeed: 1000,
-                        navigation: true,
-                        autoHeight: false,
-                        pagination: false,
-                        transitionStyle: "fade",
-                        navigationText: ["",""],
-                        responsiveRefreshRate: 200
-                    });
-                }
-                document.addEventListener("ivan-content-ready", initHomeCards);
-            })(jQuery);
+            (function($){$(window).on("load", function(){ var sync1 = $("#owl-6033-691b40131541b"); sync1.owlCarousel({ singleItem: true, autoPlay: true, slideSpeed: 1000, navigation: true, autoHeight: false, pagination: false, transitionStyle : "fade", navigationText : ["",""], responsiveRefreshRate: 200, });})})(jQuery);
         </script>
         <div class="contentclearfix clearfix"></div>
     </div>
@@ -391,7 +362,7 @@
     <script type="text/javascript" src="https://imaginem.site/kinetika/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.3.3" id="wc-order-attribution-js"></script>
     <script src="supabase/config.js"></script>
     <script src="content/site-data.js"></script>
-    <script src="site-content.js?v=8"></script>
+    <script src="site-content.js?v=2"></script>
     <script type="text/javascript">
         jQuery(function($){jQuery.supersized({slideshow : 1,autoplay:1,start_slide : 1,image_path:'https://imaginem.site/kinetika/wp-content/themes/kinetika/images/supersized/',stop_loop:0,random: 0,slide_interval : 8000,transition : 1,transition_speed:1000,new_window:0,pause_hover : 0,keyboard_nav : 1,performance:2,image_protect:0, min_width : 0,min_height : 0,vertical_center : 1,horizontal_center : 1,fit_always:0,fit_portrait : 1,fit_landscape: 0,slide_links:'blank',thumb_links:1,thumbnail_navigation : 0,slides : [{image : 'https://lh3.googleusercontent.com/d/1at-FBWyAaYqxYLryuHbH4avApb5Ar1Qo', alttext : 'Forest', title : '<div class="fullscreen-slideshow-color" data-color="bright"></div><div class="slideshow-content-wrap"><div class="slideshow_title slideshow_title_animation">Ayacucho: Huamanga</div><div class="slideshow_caption"><p>Es curioso cómo cambia la vista de la plaza según el arco desde el que la mires.</p><br /></div><div class="slideshow_content_link "><a class="supersized-button" href="blog.html">Blog</a></div></div>', thumb : '', url : ''},{image : 'https://lh3.googleusercontent.com/d/1qSORBDfQxqzZueMOeKLB-wm65HR3EjjK', alttext : 'Architecture', title : '<div class="fullscreen-slideshow-color" data-color="bright"></div><div class="slideshow-content-wrap"><div class="slideshow_title slideshow_title_animation">Plaza Mayor: Huamanga</div><div class="slideshow_caption"><p>La estatua del Mariscal Sucre en el centro de la Plaza Mayor de Ayacucho a mitad de la tarde.</p><br /></div><div class="slideshow_content_link "><a class="supersized-button" href="blog.html">Blog</a></div></div>', thumb : '', url : ''},{image : 'https://lh3.googleusercontent.com/d/15JnnMaKzKrnSlD-AuKKHp2-w8S9ltk5X', alttext : 'Bride', title : '<div class="fullscreen-slideshow-color" data-color="dark"></div><div class="slideshow-content-wrap"><div class="slideshow_title slideshow_title_animation">San Miguel</div><div class="slideshow_caption"><p>Bonito, solo que mucho trafico </p><br /></div><div class="slideshow_content_link "><a class="supersized-button" href="blog.html">Blog</a></div></div>', thumb : '', url : ''},{image : 'https://lh3.googleusercontent.com/pw/AP1GczMed6GdoJy1X2vR-9G4Sgxd3LUSELkbeOJxAV6ykoeHcgitsWw7uYEZaUTYoFfwjgYYTuJzoWN38DC9QdFAPDol8ON16y_d6FG5pzSVc0PWplpkgZwOP6bOV3E2YNVhJ4aaWM8IV6lh1FYGLDUmP0TQRg=w1333-h1000-s-no-gm', alttext : 'Dancer', title : '<div class="fullscreen-slideshow-color" data-color="bright"></div><div class="slideshow-content-wrap"><div class="slideshow_title slideshow_title_animation">Selva Central</div><div class="slideshow_caption"><p>Arquitectura de madera, paisajes impresionantes y ambiente limpio.</p><br /></div><div class="slideshow_content_link "><a class="supersized-button" href="blog.html">Blog</a></div></div>', thumb : '', url : ''}],progress_bar:1,mouse_scrub:1});if ($.fn.swipe) {jQuery(".page-is-fullscreen #supersized,.pattern-overlay").swipe({ excludedElements: "button, input, select, textarea, .noSwipe", swipeLeft: function() { jQuery("#nextslide").trigger("click"); }, swipeRight: function() { jQuery("#prevslide").trigger("click"); }});}});
     </script>

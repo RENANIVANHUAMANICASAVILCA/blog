@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <script>
-        (function () {var query = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");function applySystemTheme() {var isDark = !query || query.matches;document.documentElement.classList.toggle("ivan-system-dark", isDark);document.documentElement.classList.toggle("ivan-system-light", !isDark);document.documentElement.style.colorScheme = isDark ? "dark" : "light";if (document.body) {document.body.classList.toggle("theme-is-dark", isDark);document.body.classList.toggle("theme-is-light", !isDark);}}applySystemTheme();if (document.readyState === "loading") {document.addEventListener("DOMContentLoaded", applySystemTheme, { once: true });}if (query) {if (query.addEventListener) query.addEventListener("change", applySystemTheme);else query.addListener(applySystemTheme);}})();
     </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -138,18 +137,6 @@
     <style id="rs-plugin-settings-inline-css">
         #rs-demo-id {}
     </style>
-    <style id="static-layout-fixes">
-        html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important;}body.ivan-kinetika-about .preloader-cover-screen,body.ivan-kinetika-about .pace{display:none!important;}body.ivan-kinetika-about img{max-width:100%;height:auto;}
-    </style>
-    <style id="ivan-laptop-final-fix">
-        @media only screen and (min-width:768px){body .mainmenu-navigation{width:100%!important;min-width:100%!important;position:relative!important}body .ivan-laptop-nav{position:absolute!important;top:0!important;height:78px!important;display:flex!important;align-items:center!important;gap:28px!important}body .ivan-nav-left{left:7%!important}body .ivan-nav-right{right:7%!important}body .mainmenu-navigation .header-logo-section{display:flex!important;visibility:visible!important;opacity:1!important;position:absolute!important;left:50%!important;top:0!important;transform:translateX(-50%)!important;z-index:100!important}body .mainmenu-navigation .logo img{display:block!important;visibility:visible!important;opacity:1!important;width:146px!important;height:auto!important}}
-    </style>
-    <style id="ivan-laptop-position-fix">
-        @media only screen and (min-width:768px){.ivan-laptop-nav{position:fixed!important;top:0!important;height:78px!important;display:flex!important;align-items:center!important;gap:28px!important;z-index:10000!important}.ivan-nav-left{left:7vw!important}.ivan-nav-right{right:7vw!important}.mainmenu-navigation .header-logo-section{position:fixed!important;top:0!important;left:50%!important;width:146px!important;height:78px!important;transform:translateX(-50%)!important;z-index:10001!important}.mainmenu-navigation .logo{width:146px!important;height:78px!important}.mainmenu-navigation .logo img{width:146px!important;height:auto!important;display:block!important}}
-    </style>
-    <style id="ivan-laptop-specificity">
-        @media only screen and (min-width:768px){body .ivan-laptop-nav{position:fixed!important;top:0!important;height:78px!important;z-index:10000!important;display:flex!important;align-items:center!important;gap:28px!important}body .ivan-nav-left{left:7vw!important;right:auto!important}body .ivan-nav-right{right:7vw!important;left:auto!important}body .mainmenu-navigation .header-logo-section{position:fixed!important;left:50%!important;top:0!important;width:146px!important;height:78px!important;transform:translateX(-50%)!important;z-index:10001!important}}
-    </style>
 </head>
 
 <body class="ivan-kinetika-about wp-singular page-template page-template-template-fullpage page-template-template-fullpage-php page page-id-5857 page-child parent-pageid-5855 wp-theme-kinetika theme-kinetika woocommerce-no-js single-author theme-is-light demo middle-logo page-is-not-fullscreen no-title-background pagebuilder-active theme-fullwidth body-dashboard-push footer-is-on nosidebar">
@@ -208,8 +195,6 @@
                             <a href="index.html"><img class="logo-theme-main" src="img/logo_dark.png" alt="Ivan's Blog logo" /></a>
                         </div>
                     </div>
-                    <div class="ivan-laptop-nav ivan-nav-left"><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="images/images.html">Images</a></div>
-                    <div class="ivan-laptop-nav ivan-nav-right"><a href="about.html">About me</a><a href="https://www.instagram.com/huamanicasavilcaivan/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
                     <div class="homemenu">
                         <ul id="menu-mainmenu" class="sf-menu mtheme-left-menu">
                             <li id="menu-item-9710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9710"><a href="https://imaginem.site/kinetika/blog/">Homepages</a>
@@ -687,9 +672,6 @@
     <script
     defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"038e963160154f8eac933f2cf2f8df69","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
     crossorigin="anonymous"></script>
-<script>
-(function(){var button=document.getElementById('goto-top');if(!button)return;var update=function(){button.style.display=window.scrollY>160?'block':'none'};button.addEventListener('click',function(event){event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})},{passive:false});window.addEventListener('scroll',update,{passive:true});update();})();
-</script>
 </body>
 
 </html>
