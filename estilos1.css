@@ -28,6 +28,7 @@
     body.home .mainmenu-navigation .logo-theme-main{filter:invert(1) grayscale(1) contrast(1.08)!important;}
     body.home .mtheme-fullscreen-toggle{display:none!important;}
 }
+
 body.home #progress-back{visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .25s ease!important;}
 html.ivan-content-loaded body.home #progress-back{visibility:visible!important;opacity:1!important;}
 body.home #progress-bar{display:block!important;visibility:visible!important;opacity:1!important;height:2px!important;}
@@ -148,3 +149,40 @@ body.home .mtheme-events-carousel .slideshow-box-title{text-align:left!important
     body.page-template-template-bloglist .mtheme-fullscreen-toggle,
     body.ivan-kinetika-about .mtheme-fullscreen-toggle{display:none!important;}
 }
+
+html:not(.ivan-content-loaded) body.home,
+html:not(.ivan-content-loaded) body.home #home,
+html:not(.ivan-content-loaded) body.home .container-wrapper{background:#fff!important;}
+html:not(.ivan-content-loaded) body.home .preloader-cover-screen,
+html:not(.ivan-content-loaded) body.home .pace{display:block!important;visibility:visible!important;opacity:1!important;background:#fff!important;transform:none!important;z-index:2147483646!important;}
+html:not(.ivan-content-loaded) body.home #supersized,
+html:not(.ivan-content-loaded) body.home #supersized li,
+html:not(.ivan-content-loaded) body.home #supersized li img{visibility:hidden!important;opacity:0!important;}
+html.ivan-content-loaded body.home .preloader-cover-screen,
+html.ivan-content-loaded body.home .pace{visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .25s ease,visibility 0s linear .25s!important;}
+body.home .outer-wrap,
+body.home .stickymenu-zone,
+body.home .outer-header-wrap,
+body.page-template-template-bloglist .outer-wrap,
+body.page-template-template-bloglist .stickymenu-zone,
+body.page-template-template-bloglist .outer-header-wrap,
+body.ivan-kinetika-about .outer-wrap,
+body.ivan-kinetika-about .stickymenu-zone,
+body.ivan-kinetika-about .outer-header-wrap,
+body.home footer,
+body.page-template-template-bloglist footer,
+body.ivan-kinetika-about footer{background:rgba(18,18,18,.25)!important;}
+html.ivan-system-light body.home .outer-wrap,
+html.ivan-system-light body.home .stickymenu-zone,
+html.ivan-system-light body.home .outer-header-wrap,
+html.ivan-system-light body.page-template-template-bloglist .outer-wrap,
+html.ivan-system-light body.page-template-template-bloglist .stickymenu-zone,
+html.ivan-system-light body.page-template-template-bloglist .outer-header-wrap,
+html.ivan-system-light body.ivan-kinetika-about .outer-wrap,
+html.ivan-system-light body.ivan-kinetika-about .stickymenu-zone,
+html.ivan-system-light body.ivan-kinetika-about .outer-header-wrap,
+html.ivan-system-light body.home footer,
+html.ivan-system-light body.page-template-template-bloglist footer,
+html.ivan-system-light body.ivan-kinetika-about footer{background:rgba(255,255,255,.38)!important;}
+body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{backdrop-filter:blur(13.2px) saturate(128%)!important;-webkit-backdrop-filter:blur(13.2px) saturate(128%)!important;}
+@media only screen and (max-width:767px){body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{backdrop-filter:blur(8.8px) saturate(128%)!important;-webkit-backdrop-filter:blur(8.8px) saturate(128%)!important;}}
