@@ -3,6 +3,17 @@ create table if not exists public.site_content (
   content jsonb not null default '{"posts":[],"homeSlides":[],"homeCards":[],"gallery":[]}'::jsonb,
   updated_at timestamptz not null default now()
 );
+
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select lower(coalesce(auth.jwt() ->> 'email', '')) in ('renanhuamani1@gmail.com', 'ivan@admin.com')
+    or exists(select 1 from public.admin_users where user_id = auth.uid());
+$$;
 alter table public.site_content enable row level security;
 revoke all on public.site_content from anon, authenticated;
 grant select on public.site_content to anon, authenticated;
