@@ -212,3 +212,8 @@ html.ivan-system-light body.home .outer-wrap,
 html.ivan-system-light body.home .stickymenu-zone,
 html.ivan-system-light body.home .outer-header-wrap{background:rgba(255,255,255,.56)!important;}
 html.ivan-system-light body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{background:rgba(255,255,255,.56)!important;}
+html.ivan-system-light body.home .responsive-menu-wrap,
+html.ivan-system-light body.home .outer-wrap,
+html.ivan-system-light body.home .stickymenu-zone,
+html.ivan-system-light body.home .outer-header-wrap,
+html.ivan-system-light body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{background:rgba(255,255,255,.68)!important;}
