@@ -205,18 +205,3 @@ body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel .owl-wrapper,
 body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel .owl-item,
 body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel .slideshow-box-wrapper{backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 @media only screen and (max-width:767px){body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{transform:translate3d(0,-6px,0) scale(.92)!important;transition:transform .45s cubic-bezier(.22,.61,.36,1),opacity .35s ease!important;}}
-@media only screen and (min-width:768px){body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{width:286px!important;transform:translate3d(0,-8px,0) scale(1.056)!important;}}
-
-@media only screen and (min-width:768px) and (prefers-color-scheme:light){
-body:not(.ivan-admin) .outer-wrap,body:not(.ivan-admin) .stickymenu-zone,body:not(.ivan-admin) .outer-header-wrap{background:linear-gradient(135deg,rgba(255,255,255,.46),rgba(255,255,255,.18) 52%,rgba(255,255,255,.34)),rgba(255,255,255,.3)!important;border-color:rgba(255,255,255,.56)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 10px 32px rgba(0,0,0,.08)!important;}
-body:not(.ivan-admin) footer{background:rgba(255,255,255,.38)!important;}
-}
-@media only screen and (min-width:768px) and (prefers-color-scheme:dark){
-body:not(.ivan-admin) .outer-wrap,body:not(.ivan-admin) .stickymenu-zone,body:not(.ivan-admin) .outer-header-wrap{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035) 52%,rgba(255,255,255,.08)),rgba(18,18,18,.25)!important;border-color:rgba(255,255,255,.2)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 32px rgba(0,0,0,.12)!important;}
-body:not(.ivan-admin) footer{background:rgba(18,18,18,.25)!important;}
-body.page-template-template-bloglist,body.ivan-kinetika-about{background:#111!important;color:#e8e8e8!important;}
-body.page-template-template-bloglist #home,body.page-template-template-bloglist .container-wrapper,body.page-template-template-bloglist .contents-wrap,body.page-template-template-bloglist .title-container-outer-wrap,body.page-template-template-bloglist .entry-content-wrapper,body.ivan-kinetika-about #home,body.ivan-kinetika-about .container-wrapper,body.ivan-kinetika-about .contents-wrap,body.ivan-kinetika-about .entry-content-wrapper{background-color:#111!important;color:#e8e8e8!important;}
-body.page-template-template-bloglist .title-container-wrap,body.page-template-template-bloglist .title-container,body.page-template-template-bloglist .container,body.page-template-template-bloglist .entry-wrapper,body.page-template-template-bloglist .post,body.page-template-template-bloglist .blog-content-section,body.ivan-kinetika-about .title-container-wrap,body.ivan-kinetika-about .title-container,body.ivan-kinetika-about .container,body.ivan-kinetika-about .entry-wrapper{background-color:#111!important;color:#e8e8e8!important;}
-body.page-template-template-bloglist h1,body.page-template-template-bloglist h2,body.page-template-template-bloglist h3,body.page-template-template-bloglist h4,body.page-template-template-bloglist h5,body.page-template-template-bloglist h6,body.page-template-template-bloglist p,body.page-template-template-bloglist li,body.page-template-template-bloglist a,body.ivan-kinetika-about h1,body.ivan-kinetika-about h2,body.ivan-kinetika-about h3,body.ivan-kinetika-about h4,body.ivan-kinetika-about h5,body.ivan-kinetika-about h6,body.ivan-kinetika-about p,body.ivan-kinetika-about li,body.ivan-kinetika-about a{color:#e8e8e8!important;}
-body.page-template-template-bloglist .entry-content a,body.ivan-kinetika-about .entry-content a{color:#fff!important;}
-}
