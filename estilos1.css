@@ -205,3 +205,4 @@ body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel .owl-wrapper,
 body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel .owl-item,
 body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel .slideshow-box-wrapper{backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 @media only screen and (max-width:767px){body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{transform:translate3d(0,-6px,0) scale(.92)!important;transition:transform .45s cubic-bezier(.22,.61,.36,1),opacity .35s ease!important;}}
+@media only screen and (min-width:768px){body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{width:286px!important;transform:translate3d(0,-8px,0) scale(1.056)!important;}}
