@@ -223,3 +223,4 @@ html.ivan-system-light body.home .gridblock-owlcarousel-wrap.mtheme-events-carou
 html.ivan-system-light body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{background:rgba(255,255,255,.48)!important;}
 @media only screen and (max-width:767px){body.home .gridblock-owlcarousel-wrap.mtheme-events-carousel{border-radius:12px!important;overflow:hidden!important;}}
 @media only screen and (min-width:768px){html.ivan-system-light body.home .outer-wrap,html.ivan-system-light body.home .stickymenu-zone,html.ivan-system-light body.home .outer-header-wrap{background:rgba(255,255,255,.48)!important;}}
+@media only screen and (min-width:768px){body:not(.ivan-admin) .outer-wrap,body:not(.ivan-admin) .stickymenu-zone{top:0!important;margin-top:0!important;padding-top:0!important;transform:translate3d(0,0,0)!important;}body:not(.ivan-admin) .outer-header-wrap{top:0!important;margin-top:0!important;}}
