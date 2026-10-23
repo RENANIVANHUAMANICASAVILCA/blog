@@ -1,5 +1,5 @@
 (function(){
-  function startSupersized(){const $=window.jQuery,slides=window.IVAN_HOME_SLIDES;if(!$?.supersized||!slides?.length)return;$.supersized({slideshow:1,autoplay:1,start_slide:1,stop_loop:0,slide_interval:8000,transition:1,transition_speed:1000,keyboard_nav:1,performance:2,fit_always:0,fit_portrait:1,fit_landscape:0,slide_links:'blank',thumb_links:1,thumbnail_navigation:0,progress_bar:1,mouse_scrub:1,slides})}
+  function startSupersized(){const $=window.jQuery,slides=window.IVAN_HOME_SLIDES;if(!$?.supersized||!slides?.length)return;$.supersized({slideshow:1,autoplay:1,start_slide:1,image_path:'https://imaginem.site/kinetika/wp-content/themes/kinetika/images/supersized/',stop_loop:0,slide_interval:8000,transition:1,transition_speed:1000,new_window:0,pause_hover:0,keyboard_nav:1,performance:2,image_protect:0,min_width:0,min_height:0,vertical_center:1,horizontal_center:1,fit_always:0,fit_portrait:1,fit_landscape:0,slide_links:'blank',thumb_links:1,thumbnail_navigation:0,progress_bar:1,mouse_scrub:1,slides})}
   const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const visible=list=>(list||[]).filter(item=>item.published!==false);
   const months={Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
