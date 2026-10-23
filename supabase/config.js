@@ -1,4 +1,4 @@
 window.IVAN_SUPABASE_CONFIG = {
-  supabaseUrl: 'https://yicekicqvjpcgmydbsor.supabase.co',
-  supabaseAnonKey: 'sb_publishable_p6wX1zBLvllG8V2-0myn0A_Hm2iU2Gj'
+  supabaseUrl: 'https://aimpczkhhjzcnnsfeozs.supabase.co',
+  supabaseAnonKey: 'sb_publishable_MEuqHTN4aCIATQPTSf02yg_Mw-t5ueC'
 };
