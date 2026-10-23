@@ -4,6 +4,12 @@ create table if not exists public.site_content (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists public.admin_users (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  email text not null unique,
+  created_at timestamptz not null default now()
+);
+
 create or replace function public.is_admin()
 returns boolean
 language sql
