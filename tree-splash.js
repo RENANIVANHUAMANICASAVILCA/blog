@@ -1,37 +1,29 @@
 (() => {
+  'use strict';
   const DURATION = 20000;
   const root = document.createElement('div');
   root.id = 'tree-splash';
-  root.innerHTML = '<canvas aria-label="Árbol navideño de partículas"></canvas><audio preload="auto" autoplay loop src="tree-audio.m4a"></audio>';
+  root.innerHTML = '<canvas id="tree-canvas" aria-label="Árbol navideño tridimensional de partículas, con adornos, guirnaldas y regalos"></canvas><audio preload="auto" autoplay loop src="tree-audio.m4a"></audio>';
   const style = document.createElement('style');
-  style.textContent = '#tree-splash{position:fixed;inset:0;z-index:2147483647;background:#000;opacity:1;transition:opacity 1.2s ease;overflow:hidden}#tree-splash.is-done{opacity:0;pointer-events:none}#tree-splash canvas{display:block;width:100%;height:100%}';
-  document.head.appendChild(style);
-  document.body.appendChild(root);
-  const canvas = root.querySelector('canvas');
-  const audio = root.querySelector('audio');
-  const ctx = canvas.getContext('2d', { alpha: false });
-  const colors = ['#2f9a62', '#65ca8b', '#b8e8bd', '#f2c94c', '#fff0a6', '#dc393e', '#326bd0'];
-  let width = 0, height = 0, ratio = 1, started = performance.now(), rotation = 0, last = started;
-  const points = [], stars = [];
-  let seed = 3481;
-  const random = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
-  function resize() { width = innerWidth; height = innerHeight; ratio = Math.min(devicePixelRatio || 1, 1.5); canvas.width = width * ratio; canvas.height = height * ratio; ctx.setTransform(ratio, 0, 0, ratio, 0, 0); }
-  function add(x, y, z, color, size, phase) { points.push({ x, y, z, color, size, phase }); }
-  for (let i = 0; i < 4200; i++) { const t = random(), y = .18 + t * 2.9, r = (1 - t) * (.82 + random() * .14) * Math.sqrt(random()), a = random() * Math.PI * 2; add(Math.cos(a) * r, y, Math.sin(a) * r, colors[random() < .12 ? 2 : random() < .18 ? 1 : 0], .6 + random() * .8, random() * 6.28); }
-  for (let i = 0; i < 650; i++) { const t = random(), a = t * Math.PI * 2 * 5.2, r = (1 - t) * .94 + .04; add(Math.cos(a) * r, .25 + t * 2.72, Math.sin(a) * r, i % 12 ? colors[3] : colors[4], i % 12 ? .7 : 1.7, random() * 6.28); }
-  for (let i = 0; i < 28; i++) { const t = .1 + i / 34 * .82, a = i * 2.399, r = (1 - t) * .9; add(Math.cos(a) * r, .3 + t * 2.7, Math.sin(a) * r, i % 3 ? colors[5] : colors[6], 2.2, random() * 6.28); }
-  for (let i = 0; i < 240; i++) stars.push({ x: random(), y: random(), r: .3 + random() * 1.2, p: random() * 6.28 });
-  resize(); addEventListener('resize', resize, { passive: true });
-  function frame(now) {
-    const elapsed = now - started, dt = Math.min(.04, (now - last) / 1000); last = now; rotation += dt * .56;
-    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, width, height);
-    for (const star of stars) { ctx.globalAlpha = .2 + .55 * (.5 + .5 * Math.sin(elapsed * .001 + star.p)); ctx.fillStyle = '#d9e6f0'; ctx.fillRect(star.x * width, star.y * height, star.r, star.r); }
-    const scale = Math.min(width * .43, height * .24), base = height * .82, top = base - scale * 3.25, progress = Math.min(1, elapsed / 7000);
-    ctx.globalAlpha = 1;
-    for (const p of points) { const buildStart = Math.max(0, Math.min(.88, (p.y - .18) / 3.05)), ease = Math.min(1, Math.max(0, (progress - buildStart) * 8)), drift = 1 - ease; if (ease <= 0) continue; const orbit = p.phase + drift * 6.28, x = p.x + Math.cos(orbit) * drift * .48, z = p.z + Math.sin(orbit) * drift * .48, cs = Math.cos(rotation), sn = Math.sin(rotation), xx = x * cs + z * sn, zz = z * cs - x * sn, f = 4.7 / (4.7 + zz * .4), px = width * .5 + xx * scale * f, py = base - (p.y - drift * .28) * scale * f; ctx.globalAlpha = .38 + ease * .62; ctx.fillStyle = p.color; ctx.beginPath(); ctx.arc(px, py, Math.max(.7, p.size * f), 0, Math.PI * 2); ctx.fill(); }
-    if (progress > .7) { const a = (progress - .7) / .3, sx = width * .5, sy = top - 12; ctx.globalAlpha = a; ctx.fillStyle = '#ffe58b'; ctx.shadowColor = '#ffe58b'; ctx.shadowBlur = 20; ctx.beginPath(); for (let i = 0; i < 10; i++) { const angle = -Math.PI / 2 + i * Math.PI / 5, radius = i % 2 ? 7 : 17; ctx.lineTo(sx + Math.cos(angle) * radius, sy + Math.sin(angle) * radius); } ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0; }
-    if (elapsed < DURATION) requestAnimationFrame(frame); else { root.classList.add('is-done'); setTimeout(() => root.remove(), 1300); }
-  }
-  audio.volume = .82; audio.play().catch(() => { const unlock = () => { audio.play().catch(() => {}); removeEventListener('pointerdown', unlock); removeEventListener('keydown', unlock); }; addEventListener('pointerdown', unlock, { once: true, passive: true }); addEventListener('keydown', unlock, { once: true }); });
-  requestAnimationFrame(frame);
+  style.textContent = '#tree-splash{position:fixed;inset:0;z-index:2147483647;background:#000;opacity:1;transition:opacity 1.2s ease;overflow:hidden}#tree-splash.is-done{opacity:0;pointer-events:none}#tree-canvas{display:block;width:100%;height:100%;touch-action:none}';
+  document.head.appendChild(style); document.body.appendChild(root);
+  const c = root.querySelector('#tree-canvas'), g = c.getContext('2d', { alpha:false }), audio = root.querySelector('audio');
+  let W=0,H=0,D=1,scale=1,start=performance.now(),last=start,angle=0,seed=328;
+  const rnd=()=> (seed=(seed*1664525+1013904223)>>>0)/4294967296, TAU=Math.PI*2, pts=[],snow=[],stars=[],glows={};
+  const palette={leaf:[52,146,94],jade:[114,205,148],pale:[188,228,196],gold:[255,207,91],warm:[255,239,168],red:[206,30,42],blue:[40,98,205],trunk:[120,71,38],white:[209,225,248]};
+  function add(x,y,z,color,size=1,kind=0,phase=rnd()*TAU){pts.push({x,y,z,color,size,kind,phase})}
+  function glow(color){if(glows[color])return glows[color];const b=document.createElement('canvas');b.width=b.height=64;const q=b.getContext('2d'),a=palette[color],grad=q.createRadialGradient(32,32,0,32,32,32);grad.addColorStop(0,`rgba(${a},.9)`);grad.addColorStop(.13,`rgba(${a},.5)`);grad.addColorStop(.38,`rgba(${a},.12)`);grad.addColorStop(1,`rgba(${a},0)`);q.fillStyle=grad;q.fillRect(0,0,64,64);return glows[color]=b}
+  for(let i=0;i<11500;i++){let y=rnd()*2.85+.2,t=(y-.2)/2.85,tier=(t*10)%1,branch=(1-t)*(.79+.18*Math.pow(1-tier,1.5)),r=branch*Math.sqrt(.45+rnd()*.55),a=rnd()*TAU;add(Math.cos(a)*r,y+(rnd()-.5)*.045,Math.sin(a)*r,rnd()<.16?'pale':rnd()<.45?'jade':'leaf',.65+rnd()*.7)}
+  for(let i=0;i<700;i++){let y=rnd()*.45,a=rnd()*TAU;add(Math.cos(a)*.075,y,Math.sin(a)*.075,'trunk',.8)}
+  for(let i=0;i<1550;i++){let t=i/1549,y=.28+t*2.68,a=t*TAU*5.4,r=(1-t)*.93+.035;add(Math.cos(a)*r,y,Math.sin(a)*r,i%13===0?'warm':'gold',i%13===0?1.7:.65,i%13===0?1:0)}
+  for(let i=0;i<180;i++){let t=rnd()*.94,y=.3+t*2.7,a=rnd()*TAU,r=(1-t)*.9;add(Math.cos(a)*r,y,Math.sin(a)*r,rnd()<.2?'red':rnd()<.3?'warm':'gold',1.5,1)}
+  for(let k=0;k<39;k++){let t=.08+(k/39)*.83,a=k*2.399963,r=(1-t)*.92,cy=.28+t*2.75,cx=Math.cos(a)*r,cz=Math.sin(a)*r,rad=.045+rnd()*.035,col=k%5===0?'blue':k%3===0?'gold':'red';for(let i=0;i<115;i++){let yy=1-2*(i+.5)/115,rr=Math.sqrt(1-yy*yy),th=i*2.399963;add(cx+rad*rr*Math.cos(th),cy+rad*yy,cz+rad*rr*Math.sin(th),col,.85)}add(cx-rad*.3,cy+rad*.45,cz+rad*.72,'warm',1.5,1)}
+  function gift(cx,cz,sx,sy,sz,col){for(let i=0;i<1000;i++){let x=(rnd()-.5)*sx,z=(rnd()-.5)*sz,y=rnd()*sy,face=i%3;if(face===0)x=(i%2?1:-1)*sx/2;else if(face===1)z=(i%2?1:-1)*sz/2;else y=sy;let ribbon=Math.abs(x)<sx*.09||Math.abs(z)<sz*.08;add(cx+x,y,cz+z,ribbon?'gold':col,.9)}for(let i=0;i<130;i++){let a=i/130*TAU;add(cx+Math.sin(a)*.12,sy+.045+Math.sin(2*a)*.04,cz+Math.cos(a)*.035,'gold',.8)}}
+  gift(-.7,.45,.38,.28,.3,'red');gift(.71,.12,.28,.43,.3,'blue');gift(.37,.65,.34,.22,.24,'red');gift(-.22,.72,.22,.18,.22,'pale');
+  for(let i=0;i<340;i++)stars.push({x:rnd(),y:rnd(),r:.3+rnd(),p:rnd()*TAU});for(let i=0;i<130;i++)snow.push({x:rnd(),y:rnd(),z:rnd(),p:rnd()*TAU});
+  function resize(){W=innerWidth;H=innerHeight;D=Math.min(devicePixelRatio||1,1.5);c.width=W*D;c.height=H*D;g.setTransform(D,0,0,D,0,0);scale=Math.min(W*.43,H*.223)}
+  addEventListener('resize',resize,{passive:true});resize();
+  function project(x,y,z){const ca=Math.cos(angle),sa=Math.sin(angle),xx=x*ca+z*sa,zz=z*ca-x*sa,depth=4.7+zz*.85,f=4.7/depth;return{x:W*.5+xx*scale*f,y:H*.81-y*scale,z:zz,f}}
+  function render(now){const dt=Math.min((now-last)/1000,.04);last=now;const t=(now-start)/1000;angle+=dt*.48;g.fillStyle='#000';g.fillRect(0,0,W,H);for(const s of stars){g.globalAlpha=.22+.48*(.5+.5*Math.sin(t*.6+s.p));g.fillStyle='#c8deed';g.fillRect(s.x*W,s.y*H,s.r,s.r)}g.globalAlpha=1;for(let zi=-32;zi<33;zi++)for(let xi=-40;xi<=40;xi++){const p=project(xi*.065,-.025,zi*.065),dist=Math.hypot(xi/40,zi/33),alpha=Math.max(0,.22*(1-dist*.65));g.fillStyle=`rgba(128,156,172,${alpha})`;g.fillRect(p.x,p.y,.65,.65)}const reveal=Math.min(1,t/6.2),arr=[];for(const p of pts){if(p.y>reveal*3.3)continue;const assembly=Math.max(0,Math.min(1,(t-Math.max(0,p.y)*1.32)/1.35)),ease=assembly*assembly*(3-2*assembly),drift=1-ease,q=project(p.x+Math.sin(p.phase*3.7+t*.8)*drift*.55,p.y-drift*.35,p.z);arr.push({p,q})}arr.sort((a,b)=>b.q.z-a.q.z);for(const {p,q} of arr){const depth=.45+.5*(1-q.z),flick=.8+.2*Math.sin(t*1.8+p.phase),alpha=Math.min(1,depth*flick),sz=p.size*q.f*Math.max(.65,scale/190);g.globalAlpha=alpha;g.fillStyle=`rgb(${palette[p.color]})`;if(p.kind){g.globalAlpha=alpha*(.65+.35*Math.sin(t*2+p.phase));g.drawImage(glow(p.color),q.x-sz*7,q.y-sz*7,sz*14,sz*14);g.fillStyle='#fff4d1';g.fillRect(q.x,q.y,sz,sz)}else{g.fillRect(q.x,q.y,sz,Math.max(.5,sz*.65));if(p.phase>5.8){g.globalAlpha*=.6;g.fillRect(q.x+sz*2,q.y,sz*.6,sz*.6)}}}g.globalAlpha=1;if(reveal>.92){const p=project(0,3.1,0),fade=Math.min(1,(reveal-.92)/.08),r=scale*.071;g.globalAlpha=fade;g.drawImage(glow('gold'),p.x-r*5,p.y-r*5,r*10,r*10);g.fillStyle='#ffe9a1';g.shadowColor='#ffe58d';g.shadowBlur=15;g.beginPath();for(let j=0;j<10;j++){const a=-Math.PI/2+j*Math.PI/5,rr=j%2?r*.43:r;g.lineTo(p.x+Math.cos(a)*rr,p.y+Math.sin(a)*rr)}g.closePath();g.fill();g.shadowBlur=0}for(const s of snow){const y=((s.y+t*(.012+s.z*.022))%1)*H,x=s.x*W+Math.sin(t*.3+s.p)*18;g.globalAlpha=.15+s.z*.4;g.fillStyle='#d8e5ee';g.fillRect(x,y,.6+s.z*1.1,.6+s.z*1.1)}g.globalAlpha=1;if(t<DURATION/1000)requestAnimationFrame(render);else{root.classList.add('is-done');setTimeout(()=>root.remove(),1300)}}
+  audio.volume=.8;audio.play().catch(()=>{const unlock=()=>{audio.play().catch(()=>{});removeEventListener('pointerdown',unlock);removeEventListener('keydown',unlock)};addEventListener('pointerdown',unlock,{once:true,passive:true});addEventListener('keydown',unlock,{once:true})});requestAnimationFrame(render);
 })();
